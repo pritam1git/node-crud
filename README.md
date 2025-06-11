@@ -18,16 +18,20 @@ A professional RESTful API built using **Node.js**, **Express**, and **MySQL** t
 ## 📂 Project Structure
 
 node-crud/
+
 ├── config/ # DB config
 
 
 ├── controllers/ # API logic
 
-
 ├── public/ # Frontend files
+
 ├── routes/ # Route definitions
+
 ├── server.js # Entry point
+
 ├── package.json
+
 └── README.md
 
 
