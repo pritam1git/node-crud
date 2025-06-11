@@ -1,15 +1,18 @@
 const express = require('express');
-const dotenv = require('dotenv');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-
-dotenv.config();
 const app = express();
+const userRoutes = require('./routes/userRoutes');
+const path = require('path');
+require('dotenv').config();
+require('./config/db');
 
-app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json());
 
-app.use('/api/users', require('./routes/userRoutes'));
+// Serve frontend
+app.use(express.static(path.join(__dirname, 'public')));
+
+// API routes
+app.use('/api/users', userRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
